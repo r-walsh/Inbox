@@ -18,11 +18,11 @@ const DELETE_EMAIL = `emails/DELETE_EMAIL`;
 export default function reducer( state = initialState, action ) {
 	switch ( action.type ) {
 	case SELECT_EMAIL:
-		return state.newState( Object.assign( {}, state, { selectedEmail: action.selectedEmail } ) );
+		return state.newState( { selectedEmail: action.selectedEmail } );
 	case DESELECT_EMAIL:
-		return state.newState( Object.assign( {}, state, { selectedEmail: {} } ) );
+		return state.newState( { selectedEmail: {} } );
 	case DELETE_EMAIL:
-		return state.newState( Object.assign( {}, state, { emails: state.emails.filter( ( email, index ) => index !== action.index ) } ) );
+		return state.newState( { emails: state.emails.filter( ( email, index ) => index !== action.index ) } );
 	}
 	return state;
 }
